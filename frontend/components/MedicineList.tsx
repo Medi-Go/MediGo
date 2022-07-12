@@ -62,6 +62,7 @@ const MedicineList: NextPage<MedicineListProps> = ({ title, data }) => {
       </TitleWrapper>
       {data.map((medicine) => (
         <Medicine
+          key={medicine.medicineList[0].id}
           id={medicine.medicineList[0].id}
           name={medicine.medicineList[0].name}
           group={medicine.medicineList[0].group}

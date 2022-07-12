@@ -5,7 +5,13 @@ import styled from 'styled-components';
 interface MedicineProps {
   id: string;
   name: string;
+  group: string;
   effect: string;
+  combinedTaboo: string;
+  ageTaboo: string;
+  ingredients: string[];
+  company: string;
+  cost: number;
   left: number;
 }
 
