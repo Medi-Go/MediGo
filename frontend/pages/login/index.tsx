@@ -1,5 +1,4 @@
 import type { NextPage } from 'next';
-import { useState } from 'react';
 import Image from 'next/Image';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
@@ -36,6 +35,9 @@ const GoogleLoginBtn = styled.button`
   border: 1px solid black;
   width: 80%;
   height: 40px;
+  background-color: white;
+  font-weight: bold;
+  font-size: 16px;
 `;
 
 const NaverLoginBtn = styled.button`
@@ -43,11 +45,16 @@ const NaverLoginBtn = styled.button`
   border: 1px solid black;
   width: 80%;
   height: 40px;
+  background-color: #04cf5c;
+  font-weight: bold;
+  color: white;
+  font-size: 16px;
+  border: 0px;
+  margin-top: 20px;
 `;
 
 const Login: NextPage = () => {
   const router = useRouter();
-  const [login, setLogin] = useState(false);
 
   return (
     <LoginPageContainer>
@@ -61,7 +68,11 @@ const Login: NextPage = () => {
         />
       </IconWrapper>
       <BtnWrapper>
-        <GoogleLoginBtn onClick={() => router.push('/crud')}>
+        <GoogleLoginBtn
+          onClick={() => {
+            router.push('/login/auth');
+          }}
+        >
           구글로 시작하기
         </GoogleLoginBtn>
         <NaverLoginBtn>네이버로 시작하기</NaverLoginBtn>

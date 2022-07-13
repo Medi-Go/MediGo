@@ -1,4 +1,8 @@
 import type { NextPage } from 'next';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
+import { useRecoilState } from 'recoil';
+import { authState } from '../../contexts/auth';
 import MedicineList from '../../components/MedicineList';
 
 const data = [
@@ -24,7 +28,7 @@ const data = [
         left: 3,
       },
       {
-        id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+        id: '3ac68afc-c605-48d3-a4f8-fbdaa97f63',
         name: '로스파정',
         group: '기관지 확장제',
         effect: '교감신경성 기관지 확장제',
@@ -41,7 +45,7 @@ const data = [
     disease: '신장 질환',
     medicineList: [
       {
-        id: '58694a0f-3da1-471f-bd96-145571e29d72',
+        id: '58694a0f-3da1-471f-bd96-145571ed72',
         name: '포시가',
         group: '만성 심부전 치료제',
         effect: '교감신경성 기관지 확장제',
@@ -122,10 +126,22 @@ const data2 = [
 ];
 
 const Main: NextPage = () => {
+  const router = useRouter();
+  const [auth, setAuth] = useRecoilState(authState);
+  useEffect(() => {
+    if (!auth) {
+      router.push('/login');
+    }
+  });
+
   return (
     <>
-      <MedicineList title="복용중인 약" data={data} />
-      <MedicineList title="중복 약물" data={data2} />
+      {auth && (
+        <>
+          <MedicineList title="복용중인 약" data={data} />
+          <MedicineList title="중복 약물" data={data2} />
+        </>
+      )}
     </>
   );
 };
