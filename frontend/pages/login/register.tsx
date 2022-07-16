@@ -45,7 +45,7 @@ const Register: NextPage = () => {
   const registerNewUser = () => {
     console.log('register');
     setAuth(true);
-    router.push('/main/get');
+    router.push('/main');
   };
   return (
     <RegisterPageContainer>

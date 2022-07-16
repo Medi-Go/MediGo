@@ -128,7 +128,7 @@ const data2 = [
 ];
 
 const MainLogo = styled.div`
-  margin-top: 10px;
+  margin-top: 20px;
   width: 150px;
 `;
 
@@ -152,7 +152,7 @@ const Main: NextPage = () => {
             <Image
               src={'/images/mainLogo.png'}
               width={130}
-              height={40}
+              height={37}
               alt={'arrowRightBtn'}
             />
           </MainLogo>
