@@ -1,4 +1,4 @@
-package com.capstone.medigo.service;
+package com.capstone.medigo.domain.member.service;
 
 import java.util.HashMap;
 import java.util.Map;

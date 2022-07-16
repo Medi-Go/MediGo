@@ -1,6 +1,6 @@
-package com.capstone.medigo.service;
+package com.capstone.medigo.domain.member.service;
 
-import com.capstone.medigo.domain.User;
+import com.capstone.medigo.domain.member.model.User;
 import java.util.List;
 import java.util.Optional;
 

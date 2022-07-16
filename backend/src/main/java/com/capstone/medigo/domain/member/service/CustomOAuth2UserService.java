@@ -1,9 +1,8 @@
-package com.capstone.medigo.service;
+package com.capstone.medigo.domain.member.service;
 
-import static com.capstone.medigo.domain.Role.ROLE_USER;
-
-import com.capstone.medigo.domain.User;
-import com.capstone.medigo.repository.UserRepo;
+import com.capstone.medigo.domain.member.model.Role;
+import com.capstone.medigo.domain.member.model.User;
+import com.capstone.medigo.domain.member.repository.UserRepo;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -47,7 +46,7 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
 
         // 생성된 OAuth 유저에 User 권한을 부여한 후 반환한다.
         return new DefaultOAuth2User(
-            Collections.singleton(new SimpleGrantedAuthority(ROLE_USER.stringValue)),
+            Collections.singleton(new SimpleGrantedAuthority(Role.ROLE_USER.stringValue)),
             memberAttribute, "email"
         );
     }
