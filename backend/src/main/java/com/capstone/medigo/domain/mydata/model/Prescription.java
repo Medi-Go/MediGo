@@ -1,7 +1,7 @@
 package com.capstone.medigo.domain.mydata.model;
 
-import com.capstone.medigo.domain.member.beforemodel.Member;
 import com.capstone.medigo.domain.member.model.BaseTimeEntity;
+import com.capstone.medigo.domain.member.model.User;
 import lombok.*;
 
 import javax.persistence.*;
@@ -20,7 +20,7 @@ public class Prescription extends BaseTimeEntity {
 
     @ManyToOne(fetch = FetchType.LAZY) // n:1 매핑
     @JoinColumn(name = "user_id")
-    private Member member;
+    private User user;
 
     @Column(name = "treat_type")
     private String treatType; // 진료형태
@@ -48,8 +48,8 @@ public class Prescription extends BaseTimeEntity {
 
     @Builder
 
-    public Prescription(Member member, String treatType, String visitCnt, String treatDsnm, String treatDate, String medicineCnt, String treatdsgb, String prescribeCnt, String treatMedicalnm) {
-        this.member = member;
+    public Prescription(User user, String treatType, String visitCnt, String treatDsnm, String treatDate, String medicineCnt, String treatdsgb, String prescribeCnt, String treatMedicalnm) {
+        this.user = user;
         this.treatType = treatType;
         this.visitCnt = visitCnt;
         this.treatDsnm = treatDsnm;

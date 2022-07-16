@@ -1,4 +1,4 @@
-package com.capstone.medigo.domain.member.beforemodel;
+package com.capstone.medigo.domain.member.model;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
