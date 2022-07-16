@@ -3,6 +3,7 @@ spring:
     name: medigo
   profiles:
     active: local
+    include: config
   # DB
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -71,7 +72,15 @@ app:
     tokenSecret: 926D96C90030DD58429D2751AC1BDBBC
     tokenExpiry: 600000
     refreshTokenExpiry: 7776000000
-
   oauth2:
     authorizedRedirectUris:
       - http://localhost:3000/oauth/redirect
+  mydata:
+    aes256Key: ENC(R+M93bjdkRv2w8+7+XNvWAgpo886aVfyTOc9SQPHRrmTJsJPobQLAA==)
+    aes256Iv: ENC(ZbO7t+OKc+6zqEru6/wxqA==)
+    aes256Alg: 'AES/CBC/PKCS5Padding'
+    myDataToken: ENC(XQGGv8Yo0WUHQbfOpQ3cW/zlZycsszZEh8aiC2OeA+C5Kk2trDXFMJODGduTc14xqW7cYwCFHtE=)
+    testJumin: ENC(HbJe8BymJqeMnGUgE2jl+nzHzzMulAc4)
+    testPhone: ENC(53rRpV9VMB/6uypMhtIQ4B3lDd2NSR0U)
+    testName: ENC(FAlm+7NvS6PUU8HFReVNDYg2jUxCbZYb)
+

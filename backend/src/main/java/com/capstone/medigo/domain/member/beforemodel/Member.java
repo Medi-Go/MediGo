@@ -1,6 +1,10 @@
 package com.capstone.medigo.domain.member.beforemodel;
 
 import com.capstone.medigo.domain.member.model.BaseTimeEntity;
+import com.capstone.medigo.domain.member.model.Email;
+import com.capstone.medigo.domain.member.model.Gender;
+import com.capstone.medigo.domain.member.model.Jumin;
+import com.capstone.medigo.domain.member.model.PhoneNumber;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
