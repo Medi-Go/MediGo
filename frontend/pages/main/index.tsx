@@ -1,4 +1,6 @@
 import type { NextPage } from 'next';
+import Image from 'next/Image';
+import styled from 'styled-components';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { useRecoilState } from 'recoil';
@@ -125,6 +127,11 @@ const data2 = [
   },
 ];
 
+const MainLogo = styled.div`
+  margin-top: 20px;
+  width: 150px;
+`;
+
 const Main: NextPage = () => {
   const router = useRouter();
   const [auth, setAuth] = useRecoilState(authState);
@@ -132,12 +139,24 @@ const Main: NextPage = () => {
     if (!auth) {
       router.push('/login');
     }
+    fetch('http://localhost:3000/main').then((response) => {
+      console.log(response.json());
+    });
   });
 
   return (
     <>
       {auth && (
         <>
+          <MainLogo>
+            <Image
+              src={'/images/mainLogo.png'}
+              width={130}
+              height={37}
+              alt={'arrowRightBtn'}
+            />
+          </MainLogo>
+
           <MedicineList title="복용중인 약" data={data} />
           <MedicineList title="중복 약물" data={data2} />
         </>
