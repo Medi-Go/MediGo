@@ -44,6 +44,6 @@ task copyPrivate(type: Copy) {
 	copy {
 		from './MediGo-Config'
 		include "*.yaml"
-		into 'src/main/resources/privates'
+		into 'src/main/resources'
 	}
 }

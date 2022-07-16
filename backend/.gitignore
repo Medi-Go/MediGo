@@ -6,7 +6,8 @@ build/
 !**/src/test/**/build/
 
 ### Submodule ###
-src/main/resources/privates
+application-config.yaml
+application-config.yal
 
 ### STS ###
 .apt_generated
