@@ -9,10 +9,10 @@ interface MedicineListProps {
 }
 
 const MedicineListContainer = styled.div`
-  margin-bottom: 40px;
   background-color: #f4f5f7;
   border-radius: 20px;
   margin: 20px;
+  margin-top: 10px;
   height: 280px;
   overflow: hidden;
 `;

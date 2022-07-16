@@ -75,7 +75,13 @@ const Login: NextPage = () => {
         >
           구글로 시작하기
         </GoogleLoginBtn>
-        <NaverLoginBtn>네이버로 시작하기</NaverLoginBtn>
+        <NaverLoginBtn
+          onClick={() => {
+            router.push('http://localhost:8080/oauth2/authorization/naver');
+          }}
+        >
+          네이버로 시작하기
+        </NaverLoginBtn>
       </BtnWrapper>
     </LoginPageContainer>
   );
