@@ -18,7 +18,12 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.core.user.OAuth2User;
+import org.springframework.security.web.DefaultRedirectStrategy;
+import org.springframework.security.web.RedirectStrategy;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
+import org.springframework.security.web.savedrequest.RequestCache;
+import org.springframework.security.web.savedrequest.SavedRequest;
 import org.springframework.stereotype.Component;
 
 @Slf4j
@@ -29,6 +34,8 @@ public class OAuth2SuccessHandler implements AuthenticationSuccessHandler {
     private final TokenService tokenService;
     private final ObjectMapper objectMapper;
     private final UserService userService;
+
+    private RedirectStrategy redirectStratgy = new DefaultRedirectStrategy();
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
@@ -55,16 +62,16 @@ public class OAuth2SuccessHandler implements AuthenticationSuccessHandler {
         // 토큰 생성
         Token token = tokenService.generateToken(email, ROLE_USER.stringValue);
 
-        writeTokenResponse(response, token);
+        resultRedirectStrategy(request, response, token);
     }
 
-    private void writeTokenResponse(HttpServletResponse response, Token token)
-        throws IOException {
+    protected void resultRedirectStrategy(HttpServletRequest request, HttpServletResponse response,
+        Token token) throws IOException, ServletException {
+
         response.setContentType("text/html;charset=UTF-8");
-//        response.addHeader(AUTHORIZATION, "Bearer " + token.getAccessToken());
         response.setContentType("application/json;charset=UTF-8");
 
-        Cookie cookie = new Cookie("refreshToken",token.getRefreshToken());
+        Cookie cookie = new Cookie("refreshToken", token.getRefreshToken());
 
         cookie.setSecure(true);
         cookie.setHttpOnly(true);
@@ -75,6 +82,8 @@ public class OAuth2SuccessHandler implements AuthenticationSuccessHandler {
 
         PrintWriter writer = response.getWriter();
         writer.println(objectMapper.writeValueAsString(token.getAccessToken()));
-        writer.flush();
+
+        String targetUrl = "http://localhost:3000/main";
+        redirectStratgy.sendRedirect(request, response, targetUrl);
     }
 }
