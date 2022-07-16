@@ -1,12 +1,12 @@
 package com.capstone.medigo.global.security.handler;
 
-import static com.capstone.medigo.domain.Role.*;
+import static com.capstone.medigo.domain.member.model.Role.ROLE_USER;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.capstone.medigo.domain.User;
+import com.capstone.medigo.domain.member.model.User;
 import com.capstone.medigo.global.token.Token;
 import com.capstone.medigo.global.token.TokenService;
-import com.capstone.medigo.service.UserService;
+import com.capstone.medigo.domain.member.service.UserService;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Map;
@@ -21,9 +21,6 @@ import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.security.web.DefaultRedirectStrategy;
 import org.springframework.security.web.RedirectStrategy;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
-import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
-import org.springframework.security.web.savedrequest.RequestCache;
-import org.springframework.security.web.savedrequest.SavedRequest;
 import org.springframework.stereotype.Component;
 
 @Slf4j

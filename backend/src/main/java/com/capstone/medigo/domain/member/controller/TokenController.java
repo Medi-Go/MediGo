@@ -1,6 +1,6 @@
-package com.capstone.medigo.api;
+package com.capstone.medigo.domain.member.controller;
 
-import static com.capstone.medigo.domain.Role.ROLE_USER;
+import static com.capstone.medigo.domain.member.model.Role.ROLE_USER;
 import static org.springframework.http.HttpHeaders.AUTHORIZATION;
 
 import com.capstone.medigo.global.token.Token;

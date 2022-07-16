@@ -1,4 +1,4 @@
-package com.capstone.medigo.domain;
+package com.capstone.medigo.domain.member.model;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;

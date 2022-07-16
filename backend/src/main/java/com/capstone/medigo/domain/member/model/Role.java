@@ -1,4 +1,4 @@
-package com.capstone.medigo.domain;
+package com.capstone.medigo.domain.member.model;
 
 public enum Role {
     ROLE_USER("ROLE_USER"),

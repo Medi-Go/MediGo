@@ -1,10 +1,10 @@
-package com.capstone.medigo.api;
+package com.capstone.medigo.domain.member.controller;
 
 
 import static org.springframework.http.HttpHeaders.AUTHORIZATION;
 
-import com.capstone.medigo.domain.User;
-import com.capstone.medigo.service.UserService;
+import com.capstone.medigo.domain.member.model.User;
+import com.capstone.medigo.domain.member.service.UserService;
 import java.util.List;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;

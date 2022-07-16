@@ -1,6 +1,6 @@
-package com.capstone.medigo.repository;
+package com.capstone.medigo.domain.member.repository;
 
-import com.capstone.medigo.domain.User;
+import com.capstone.medigo.domain.member.model.User;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 

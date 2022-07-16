@@ -1,26 +1,18 @@
 package com.capstone.medigo.global.security.config;
 
-import static com.capstone.medigo.domain.Role.ROLE_USER;
+import static com.capstone.medigo.domain.member.model.Role.ROLE_USER;
 import static org.springframework.http.HttpMethod.GET;
 
 import com.capstone.medigo.global.security.filter.JwtAuthenticationFilter;
 import com.capstone.medigo.global.security.handler.OAuth2SuccessHandler;
 import com.capstone.medigo.global.token.TokenService;
-import com.capstone.medigo.service.CustomOAuth2UserService;
-import java.io.IOException;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import com.capstone.medigo.domain.member.service.CustomOAuth2UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.web.authentication.AuthenticationFailureHandler;
-import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
