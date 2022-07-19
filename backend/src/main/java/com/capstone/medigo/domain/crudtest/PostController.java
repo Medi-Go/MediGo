@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -23,6 +22,7 @@ public class PostController {
     @GetMapping
     public ResponseEntity<List<Post>> getPost(){
         List<Post> all = postService.getAll();
+//        List<Post> all = null;
         return ResponseEntity.ok(all);
     }
 
@@ -35,12 +35,12 @@ public class PostController {
     @PostMapping
     public ResponseEntity<Post> save(@RequestBody PostRequest post){
         Post postEntity = Post.builder()
-            .postBody(post.postBody())
-            .postTitle(post.postTitle())
+            .body(post.body())
+            .title(post.title())
             .build();
         Post save = postService.save(postEntity);
-        System.out.println(save.getPostBody());
-        System.out.println(save.getPostTitle());
+        System.out.println(save.getBody());
+        System.out.println(save.getTitle());
         return ResponseEntity.ok(save);
     }
 
