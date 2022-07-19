@@ -15,7 +15,7 @@ public class PostService {
 
     public Post update(PostPutRequest post){
         Post post1 = postRepository.findById(post.id()).get();
-        post1.setPostBody(post.postBody());
+        post1.setBody(post.body());
         return postRepository.save(post1);
     }
 

@@ -2,15 +2,11 @@ package com.capstone.medigo.domain.crudtest;
 
 import static lombok.AccessLevel.PROTECTED;
 
-import com.capstone.medigo.domain.mydata.model.MedicineInfo;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import lombok.Builder;
 import lombok.Getter;
@@ -29,15 +25,15 @@ public class Post {
     private Long id;
 
     @Column(name = "post_title")
-    private String postTitle;
+    private String title;
 
     @Column(name = "post_body")
-    private String postBody;
+    private String body;
 
     @Builder
-    public Post(Long id, String postTitle, String postBody) {
+    public Post(Long id, String title, String body) {
         this.id = id;
-        this.postTitle = postTitle;
-        this.postBody = postBody;
+        this.title = title;
+        this.body = body;
     }
 }
