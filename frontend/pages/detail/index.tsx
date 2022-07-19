@@ -5,7 +5,7 @@ import { authState } from '../../contexts/auth';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
 
-const MedicineDetailList = styled.div`
+const MedicineDetailContainer = styled.div`
   margin-top: 20px;
   margin-left: 20px;
 `;
@@ -51,6 +51,7 @@ const AgeTabooView = styled.div`
   border-radius: 10px;
   display: flex;
   align-items: center;
+  flex-direction: column;
 `;
 
 const AgeTabooText = styled.div`
@@ -67,6 +68,7 @@ const CombinedTabooView = styled.div`
   border-radius: 10px;
   display: flex;
   align-items: center;
+  flex-direction: column;
 `;
 
 const CombinedTabooText = styled.div`
@@ -75,10 +77,18 @@ const CombinedTabooText = styled.div`
   margin-top: 5px;
 `;
 
+const IngredientTitle = styled.div`
+  font-size: 22px;
+  font-weight: bold;
+  color: #595959;
+  margin-top: 20px;
+`;
+
 const IngredientList = styled.div`
   background-color: #d2e9ff;
   width: 80%;
   height: 25%;
+  margin-top: 20px;
 `;
 
 const IngredientText = styled.div`
@@ -108,9 +118,7 @@ const CompanyText = styled.div`
   margin-top: 20px;
 `;
 
-const CostView = styled.div`
-  display: flex;
-`;
+const CostView = styled.div``;
 
 const CostTitleText = styled.div`
   font-weight: bold;
@@ -135,45 +143,45 @@ const Detail: NextPage = () => {
     // } else {
     //   router.push('/login/register');
     // }
+    console.log(router.query.name);
   });
 
   return (
-    <>
-      <>
-        <MedicineNameText>{'params.name'}</MedicineNameText>
-        <EffectView>
-          <EffectText>{'params.group'} | </EffectText>
-          <EffectText>{'params.effect'}</EffectText>
-        </EffectView>
-        <TabooTitleText>유의사항</TabooTitleText>
-        <TabooView>
-          <AgeTabooView>
-            <AgeTabooText>연령금기</AgeTabooText>
-            <AgeTabooText>{'params.ageTaboo'}</AgeTabooText>
-          </AgeTabooView>
-          <CombinedTabooView>
-            <CombinedTabooText>병용금기</CombinedTabooText>
-            <CombinedTabooText>{'params.combinedTaboo'}</CombinedTabooText>
-          </CombinedTabooView>
-        </TabooView>
-        <div>성분정보</div>
-        {/* <IngredientList
-              data={'params.ingredients'}
-              keyExtractor={(item) => item.id}
-              renderItem={({ item }) => <IngredientText>{item}</IngredientText>}
-            /> */}
-        <OthersView>
-          <CompanyView>
-            <CompanyTitleText>제조/수입사</CompanyTitleText>
-            <CompanyText>{'params.company'}</CompanyText>
-          </CompanyView>
-          <CostView>
-            <CostTitleText>급여정보</CostTitleText>
-            <CostText>{'params.cost'}원</CostText>
-          </CostView>
-        </OthersView>
-      </>
-    </>
+    <MedicineDetailContainer>
+      <MedicineNameText>{router.query.name}</MedicineNameText>
+      <EffectView>
+        <EffectText>{router.query.group} | </EffectText>
+        <EffectText>{router.query.effect}</EffectText>
+      </EffectView>
+      <TabooTitleText>유의사항</TabooTitleText>
+      <TabooView>
+        <AgeTabooView>
+          <AgeTabooText>연령금기</AgeTabooText>
+          <AgeTabooText>{router.query.ageTaboo}</AgeTabooText>
+        </AgeTabooView>
+        <CombinedTabooView>
+          <CombinedTabooText>병용금기</CombinedTabooText>
+          <CombinedTabooText>{router.query.combinedTaboo}</CombinedTabooText>
+        </CombinedTabooView>
+      </TabooView>
+      <IngredientTitle>성분정보</IngredientTitle>
+      <IngredientList>
+        {router.query.ingredients.map((ingredient) => (
+          <IngredientText>{ingredient}</IngredientText>
+        ))}
+      </IngredientList>
+
+      <OthersView>
+        <div>
+          <CompanyTitleText>제조/수입사</CompanyTitleText>
+          <CompanyText>{router.query.company}</CompanyText>
+        </div>
+        <div>
+          <CostTitleText>급여정보</CostTitleText>
+          <CostText>{router.query.cost}원</CostText>
+        </div>
+      </OthersView>
+    </MedicineDetailContainer>
   );
 };
 
