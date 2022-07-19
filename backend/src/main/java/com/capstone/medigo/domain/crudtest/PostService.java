@@ -1,5 +1,6 @@
 package com.capstone.medigo.domain.crudtest;
 
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +21,10 @@ public class PostService {
 
     public Post get(Long id){
         return postRepository.findById(id).get();
+    }
+
+    public List<Post> getAll(){
+        return postRepository.findAll();
     }
 
     public void delete(Long id){

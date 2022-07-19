@@ -1,5 +1,6 @@
 package com.capstone.medigo.domain.crudtest;
 
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -18,6 +19,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/test/post")
 public class PostController {
     private final PostService postService;
+
+    @GetMapping
+    public ResponseEntity<List<Post>> getPost(){
+        List<Post> all = postService.getAll();
+        return ResponseEntity.ok(all);
+    }
 
     @GetMapping("/{id}")
     public ResponseEntity<Post> getPost(@PathVariable Long id){
