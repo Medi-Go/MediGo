@@ -39,6 +39,7 @@ const Form: FC = () => {
         title
         <input type="text" placeholder="title" {...register('title')} />
       </label>
+      <br />
       <label>
         body
         <input type="text" placeholder="body" {...register('body')} />

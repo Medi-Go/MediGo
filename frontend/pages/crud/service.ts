@@ -11,6 +11,11 @@ export const apiClient = axios.create({
   headers: { withCredentials: true },
 });
 
+export const getItemAll = async () => {
+  const { data } = await apiClient.get('/');
+  return data;
+};
+
 export const getItemById = async (id: any) => {
   const response = await apiClient.get(`/${id}`);
   return response.data;
@@ -23,6 +28,26 @@ export const createItem = async ({ id, title, body }: Item) => {
     id,
   });
   console.log('post');
+  console.log(response.data);
+  return response.data;
+};
+
+export const putById = async (id: number, body: string) => {
+  const response = await apiClient.put(`/`, {
+    body,
+    id,
+  });
+  console.log('put');
+  console.log(response.data);
+  return response.data;
+};
+
+export const patchById = async (id: number, body: string) => {
+  const response = await apiClient.patch(`/`, {
+    body,
+    id,
+  });
+  console.log('patch');
   console.log(response.data);
   return response.data;
 };
