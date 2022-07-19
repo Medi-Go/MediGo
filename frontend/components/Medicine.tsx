@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
 import Image from 'next/Image';
 import styled from 'styled-components';
+import { useRouter } from 'next/router';
 
 interface MedicineProps {
   id: string;
@@ -68,8 +69,29 @@ const Medicine: NextPage<MedicineProps> = ({
   cost,
   left,
 }) => {
+  const router = useRouter();
+
+  const goToDetail = () => {
+    console.log('gotodetail');
+    router.push(
+      {
+        pathname: '/detail',
+        query: {
+          name: name,
+          group: group,
+          effect: effect,
+          combinedTaboo: combinedTaboo,
+          ageTaboo: ageTaboo,
+          ingredients: ingredients,
+          company: company,
+          cost: cost,
+        },
+      },
+      '/detail',
+    );
+  };
   return (
-    <MedicineComponentContainer>
+    <MedicineComponentContainer onClick={goToDetail}>
       <MedicineIconImage>
         <Image
           src={'/icon-192x192.png'}
