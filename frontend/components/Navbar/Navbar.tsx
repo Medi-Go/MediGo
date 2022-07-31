@@ -1,22 +1,19 @@
 import { useRouter } from 'next/router';
 import type { FC } from 'react';
 import styled from 'styled-components';
-// import Calendar from '../../assets/nav/calendar_nav.svg';
+import Image from 'next/image';
+import Calendar from '../../assets/nav/calendar_nav.svg';
+import Graph from '../../assets/nav/graph_nav.svg';
+import MyPage from '../../assets/nav/mypage_nav.svg';
+import Ranking from '../../assets/nav/ranking_nav.svg';
 
 const Container = styled.nav`
-  padding: 0 25px;
   background-color: white;
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 90;
-`;
-
-const Home = styled.div`
-  bottom: 17px;
-  position: relative;
-  left: -15px;
+  height: 8%;
 `;
 
 const List = styled.ul`
@@ -27,50 +24,39 @@ const List = styled.ul`
 `;
 
 const Item = styled.li`
-  font-size: 16px;
-  margin: 0 30px;
-  padding: 0.5rem 1rem;
-`;
-
-const String = styled.span`
-  @media ${({ theme }) => theme.device.laptop} {
-    font-size: 18px;
-    color: ${({ theme }) => theme.darkGray};
-  }
-
-  @media (max-width: 1300px) {
-    font-size: 15px;
-  }
-`;
-
-const LogoTitle = styled.p`
-  font-weight: bold;
-  font-size: 24px;
-  line-height: 28px;
-  text-align: center;
-  color: ${({ theme }) => theme.mainColor};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 14px;
+  padding: 0 20px;
 `;
 
 const Navbar: FC = () => {
   const router = useRouter();
 
+  const routingPages = (event: Event): void => {
+    const pageName: string = event.target.innerHTML;
+    router.push(`/${pageName}`);
+  };
+
   return (
     <Container>
       <List>
-        <Item>
-          {/* <Calendar width="22px" height="100%" /> */}
+        <Item onClick={routingPages}>
+          <Image src={MyPage} alt="mypage" />
           <div>main</div>
         </Item>
-        <Item>
-          {/* <Calendar /> */}
+        <Item onClick={routingPages}>
+          <Image src={Calendar} alt="calendar" />
           <div>calendar</div>
         </Item>
-        <Item>
-          {/* <Navs.Home /> */}
+        <Item onClick={routingPages}>
+          <Image src={Graph} alt="graph" />
           <div>graph</div>
         </Item>
-        <Item>
-          {/* <Graph /> */}
+        <Item onClick={routingPages}>
+          <Image src={Ranking} alt="ranking" />
           <div>profile</div>
         </Item>
       </List>

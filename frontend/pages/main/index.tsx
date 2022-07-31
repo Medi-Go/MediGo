@@ -140,9 +140,7 @@ const Main: NextPage = () => {
     if (!auth) {
       router.push('/login');
     }
-    fetch('http://localhost:3000/main').then((response) => {
-      console.log(response.json());
-    });
+    console.log('main');
   });
 
   return (
@@ -160,7 +158,6 @@ const Main: NextPage = () => {
 
           <MedicineList title="복용중인 약" data={data} />
           <MedicineList title="중복 약물" data={data2} />
-          <Navbar />
         </>
       )}
     </>

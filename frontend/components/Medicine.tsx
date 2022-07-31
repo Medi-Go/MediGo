@@ -72,7 +72,6 @@ const Medicine: NextPage<MedicineProps> = ({
   const router = useRouter();
 
   const goToDetail = () => {
-    console.log('gotodetail');
     router.push(
       {
         pathname: '/detail',
