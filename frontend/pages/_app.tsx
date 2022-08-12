@@ -13,8 +13,8 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <QueryClientProvider client={queryClient}>
       <RecoilRoot>
-        <Navbar />
         <Component {...pageProps} />
+        <Navbar />
       </RecoilRoot>
     </QueryClientProvider>
   );
