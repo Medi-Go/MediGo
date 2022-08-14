@@ -1,11 +1,19 @@
-import React from 'react';
-import FullCalendar from '@fullcalendar/react';
-import dayGridPlugin from '@fullcalendar/daygrid';
+import React, { useEffect, useState } from 'react';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
-export default () => (
-  <FullCalendar
-    plugins={[dayGridPlugin]}
-    locale="ja"
-    initialEvents={[{ title: 'initial event', start: new Date() }]}
-  />
-);
+const CalendarComponent = () => {
+  const [startDate, setStartDate] = useState(new Date());
+  useEffect(() => {
+    console.log(startDate);
+  }, [startDate]);
+  return (
+    <DatePicker
+      selected={startDate}
+      onChange={(date: Date) => setStartDate(date)}
+      inline
+    />
+  );
+};
+
+export default CalendarComponent;
