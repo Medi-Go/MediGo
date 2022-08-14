@@ -6,7 +6,6 @@ import { useEffect } from 'react';
 import { useRecoilState } from 'recoil';
 import { authState } from '../../contexts/auth';
 import MedicineList from '../../components/MedicineList';
-import Navbar from '../../components/Navbar/Navbar';
 
 const data = [
   {
