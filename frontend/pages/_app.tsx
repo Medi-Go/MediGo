@@ -1,7 +1,6 @@
 import type { AppProps } from 'next/app';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import '../styles/reset.css';
-import { RecoilRoot } from 'recoil';
 import Navbar from '../components/Navbar/Navbar';
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -9,10 +8,8 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <RecoilRoot>
-        <Component {...pageProps} />
-        <Navbar />
-      </RecoilRoot>
+      <Component {...pageProps} />
+      <Navbar />
     </QueryClientProvider>
   );
 }
