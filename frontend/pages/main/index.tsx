@@ -2,9 +2,6 @@ import type { NextPage } from 'next';
 import Image from 'next/Image';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
-import { useEffect } from 'react';
-import { useRecoilState } from 'recoil';
-import { authState } from '../../contexts/auth';
 import MedicineList from '../../components/MedicineList';
 
 const data = [
@@ -134,17 +131,10 @@ const MainLogo = styled.div`
 
 const Main: NextPage = () => {
   const router = useRouter();
-  const [auth, setAuth] = useRecoilState(authState);
-  useEffect(() => {
-    if (!auth) {
-      router.push('/login');
-    }
-    console.log('main');
-  });
 
   return (
     <>
-      {auth && (
+      {
         <>
           <MainLogo>
             <Image
@@ -158,7 +148,7 @@ const Main: NextPage = () => {
           <MedicineList title="복용중인 약" data={data} />
           <MedicineList title="중복 약물" data={data2} />
         </>
-      )}
+      }
     </>
   );
 };
