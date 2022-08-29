@@ -2,7 +2,7 @@ export const getQueryString = (
   key: string,
   type: 'string' | 'number',
 ): string | number => {
-  const { search } = location;
+  //   const { search } = location;
   const qs = new URLSearchParams(search);
   const value = qs.get(key);
 
