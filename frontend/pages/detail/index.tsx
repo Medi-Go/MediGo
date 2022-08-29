@@ -1,7 +1,4 @@
 import type { NextPage } from 'next';
-import { useEffect } from 'react';
-import { useRecoilState } from 'recoil';
-import { authState } from '../../contexts/auth';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
 
@@ -135,16 +132,6 @@ const CostText = styled.div`
 
 const Detail: NextPage = () => {
   const router = useRouter();
-  const [auth, setAuth] = useRecoilState(authState);
-
-  useEffect(() => {
-    // if (auth) {
-    //   router.push('/main');
-    // } else {
-    //   router.push('/login/register');
-    // }
-    console.log(router.query.name);
-  });
 
   return (
     <MedicineDetailContainer>

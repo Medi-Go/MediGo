@@ -1,4 +1,3 @@
-import type { NextPage } from 'next';
 import Image from 'next/Image';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
@@ -53,7 +52,7 @@ const NaverLoginBtn = styled.button`
   margin-top: 20px;
 `;
 
-const Login: NextPage = () => {
+const Login = () => {
   const router = useRouter();
 
   return (
@@ -70,7 +69,7 @@ const Login: NextPage = () => {
       <BtnWrapper>
         <GoogleLoginBtn
           onClick={() => {
-            router.push('http://localhost:8080/oauth2/authorization/google');
+            router.push('http://www.medigo.p-e.kr/oauth2/authorization/google');
           }}
         >
           구글로 시작하기
